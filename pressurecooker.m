@@ -44,6 +44,26 @@ a=addmf(a, 'output', 1 , 'sangat Lambat','trapmf',[ 18 20 22 24]);
 figure;plotmf(a,'output', 1);
 
 
+rule = [5 2 1 6 1 2; 2 5 3 1 1 2; 2 2 4 5 1 2; 3 5 5 2 1 2; 5 1 1 6 1 2; 1 6 6 1 1 2; 5 6 6 1 1 2; 1 1 1 6 1 2;];
+
+
+a=addrule(a, rule);
+
+%ax=setfis(a, 'Defuzzmethod', 'centroid')
+%ax=setfis(a, 'Defuzzmethod', 'mom')
+%ax=setfis(a, 'Defuzzmethod', 'lom')
+%ax=setfis(a, 'Defuzzmethod', 'bisector')
+ax=setfis(a, 'Defuzzmethod', 'som')
+time1=evalfis([1500 10 -25], ax)
+time2=evalfis([750 25 -10], ax)
+time3=evalfis([500 10 15], ax) 
+time4=evalfis([1000 20 20], ax) 
+time5=evalfis([800 20 15], ax) 
+
+
+
+
+
 
 
 
