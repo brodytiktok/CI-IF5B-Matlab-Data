@@ -6,9 +6,10 @@ setdemorandstream(391418381)
 net=patternnet(10);
 view(net)
 [net,tr] = train(net,x,t);
-nntraintool(tr)
+nntraintool
+plotperform(tr)
 testX = x(:,tr.testInd);
-testY = t(:,tr.testInd);
+testT = t(:,tr.testInd);
 
 testY=net(testX);
 testIndices = vec2ind(testY)

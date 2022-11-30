@@ -4,6 +4,7 @@ size(t)
 setdemorandstream(491218382)
 net = patternnet(10);
 view(net)
+[net,tr] = train(net,x,t);
 nntraintool
 plotperform(tr)
 testX = x(:,tr.testInd);
@@ -16,3 +17,4 @@ plotconfusion(testT,testY)
 
 fprintf('Percentage Correct Classification   : %f%%\n', 100*(1-c));
 fprintf('Precentage Incorrect Classification : %f%%\n', 100*c);
+plotroc(testT,testY)
