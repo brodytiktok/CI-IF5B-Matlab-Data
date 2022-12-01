@@ -1,11 +1,27 @@
-[x,t] = wine_dataset;
+clear all
+clc
+warning 'off'
 
+[x,t] = wine_dataset;
 size(x)
 size(t)
-setdemorandstream(391418381)
-net=patternnet(10);
-view(net)
+nodesInHL=7;
+
+HLtranfer='tansig';
+outputTranser='tansig';
+trainFunc='traingd';
+
+performanceFunc='mse';
+
+net=newff(x,t,[nodesInHL],{HLtranfer,outputTranser},trainFunc,'learngd',performanceFunc);
+
+net = init(net);
+%setting parameters
+%training
 [net,tr] = train(net,x,t);
+view(net)
+
+
 nntraintool
 plotperform(tr)
 testX = x(:,tr.testInd);
